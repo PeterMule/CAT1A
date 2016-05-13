@@ -1,0 +1,82 @@
+Problem 1: Rectangle
+
+Create a class Rectangle with private attributes length and width, each of which defaults to 1 (using default arguments of the constructor; the constructor’s first argument is for the length and the second for the width).
+
+Provide public member functions that calculate the perimeter (calculatePerimeter) and the area (calculateArea) of the rectangle (calculatePerimeter and calculateArea should take no arguments and should return an int).
+
+Also, provide set and get functions for the length and width attributes (setLength and setWidth both take an int argument and don’t return anything; getLength and getWidth take no argument and return int). The set functions and the constructor should verify that length and width are each integer is not less than 1 and not greater than 20 (if length or width is less than 1 it should default to 1, and if length or width is greater than 20 it should default to 20).
+
+Write your own main function to test Rectangle but when submitting your answer do not include the main function.
+
+
+
+Problem 2: Point
+
+Create a class Point with two private ints called x and y. The class should have a single constructor that if called without arguments, initializes a Point using default arguments to the origin – (0, 0) – but if called with two arguments, x and y, creates a point located at (x, y).
+
+Support the following operations using the given function signatures
+
+void Point::setX(int newX)    // sets the value of x
+void Point::setY(int newY)    // sets the value of y
+int Point::getX()    // returns the value of x
+int Point::getY()    // returns the value of y
+Write your own main function to test the Point class but when submitting your answer do not include the main function.
+
+
+
+Problem 3: SmartRectangle
+
+Create a class SmartRectangle that is more sophisticated than the one you created in Problem 1 and that uses the Point class created in Problem 2. This class stores only four Points representing the Cartesian coordinates of the four corners of the rectangle.
+
+The constructor accepts four Points in the order top-left, top-right, bottom-left, bottom-right. The constructor verifies the following conditions:
+
+that each of the Points is in the first quadrant (first quadrant is taken to be inclusive of the lines x = 0 and y = 0)
+that no Point has its x- or y-coordinate being larger than 20
+that the supplied coordinates do, in fact, specify a rectangle.
+If ANY of the conditions is not met the constructor should set the Points of the SmartRectangle to the following default Points: (0, 20), (20, 20), (0, 0) and (20, 0). You are advised to use setX() and setY() functions for this.
+
+Also, overload the constructor of SmartRectangle such that if no Point is provided in the argument list, the four Points of the SmartRectangle object default to (0, 20), (20, 20), (0, 0) and (20, 0).
+
+Provide member functions that calculate the length, width, perimeter and area. The length is the larger of the two dimensions. Include a function isSquare that determines whether the rectangle is a square.
+
+Function signatures are as follows:
+
+int SmartRectangle::calculateLength()
+int SmartRectangle::calculateWidth()
+int SmartRectangle::calculatePerimeter()
+int SmartRectangle::calculateArea()
+bool SmartRectangle::isSquare()
+NB: if you define your functions within the class then the scope resolution operator is not needed
+
+Write your own main function to test SmartRectangle but when submitting your answer do not include the main function.
+
+The code for SmartRectangle requires the code for the Point class. Therefore, your submission should also have the code for the Point class appearing above the code of SmartRectangle class
+
+
+
+Problem 4: Drawable Rectangle
+
+Create a class DrawableRectangle that modifies SmartRectangle from Problem 3 to also include a draw function that displays the rectangle inside a 25-by-25 box enclosing the portion of the first quadrant in which the rectangle resides.
+
+Include a setFillChar function to specify the character out of which the body of the rectangle will be drawn. For this you would need to add one more private data member to DrawableRectangle in order to hold the Fill Character.
+
+Function signatures are as follows:
+
+void DrawableRectangle::draw()
+void DrawableRectangle::setFillChar(char fillChar)
+NB: if you implement the functions within the class then the scope resolution operator is not required.
+
+E.g. if the rectangle created is 15 by 6 and fillChar has been set to ‘o’, invoking the draw function should print out the following on the screen:
+
+oooooooooooooooo
+oooooooooooooooo
+oooooooooooooooo
+oooooooooooooooo
+oooooooooooooooo
+oooooooooooooooo
+oooooooooooooooo
+Note that the length (longer side) is along the horizontal direction. Note also a rectangle whose length × width is 15 × 6 is drawn having 16 asterisks along the length (horizontal) and 7 along the width (vertical) so that the drawn length and width are 15 spaces and 6 spaces, respectively.
+
+Hint: begin by copying and pasting the code of SmartRectangle into DrawableRectangle and renaming the constructors appropriately. Then implement setFillChar() and draw().
+
+Write your own main function to test DrawableRectangle but when submitting your answer do not include the main function.
